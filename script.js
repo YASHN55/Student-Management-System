@@ -1,4 +1,3 @@
-
 function addStudent() {
 
     let name = document.getElementById("studentName").value;
@@ -15,9 +14,22 @@ function addStudent() {
 
     li.textContent = name + " - " + course;
 
+    // Create Delete Button
+    let deleteButton = document.createElement("button");
+
+    deleteButton.textContent = "Delete";
+
+    deleteButton.style.marginLeft = "15px";
+
+    // Delete student when button is clicked
+    deleteButton.onclick = function() {
+        li.remove();
+    };
+
+    li.appendChild(deleteButton);
+
     studentList.appendChild(li);
 
     document.getElementById("studentName").value = "";
     document.getElementById("studentCourse").value = "";
-
 }
